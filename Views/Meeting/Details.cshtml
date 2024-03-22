@@ -1,0 +1,25 @@
+@model UserInfo
+@{
+ViewBag.Title = "Kullanıcı Detayı";
+}
+@{
+var className = @Model.WillAtend == true ? "primary":"danger";
+}
+<h1 class="h4">Kullanıcı Detayı</h1>
+<p>
+    <span class="badge text-bg-@className">
+        @if(Model.WillAtend == true)
+        {
+        <text>Katılıyor</text>
+        }
+        else
+        {
+        <text>Katılmıyor</text>
+        }
+    </span>
+</p>
+<p>@Model.Name</p>
+<p>@Model.Email</p>
+<p>@Model.Phone</p>
+<a asp-controller="Meeting" asp-action="List" class="btn btn-outline-@className">
+    Katılımcı Listesine Dön</a>
